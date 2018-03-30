@@ -20,7 +20,7 @@ class CAT{
 		void ShowCat();
 		void AgeUp();
 		void AddChild();
-}
+};
 
 int main(){
 
