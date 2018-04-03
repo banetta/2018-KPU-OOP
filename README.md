@@ -60,9 +60,15 @@
 
         cpp-hw-006	난수 생성기
 
+	cpp-hw-007	Calculator (책 p.135)
+
+	cpp-hw-008	Printer (책 p.136)
+
 	cpp-tr-001	class 실습 (class 선언과 public, private의 차이점)	
 	cpp-tr-002	실습 과제 (ADT 설계) - 작성중
 
 	cpp-tr-003	실습 과제 (좌표 프로그램, 구조체에서 클래스로) - 작성중
 
 	cpp-tr-004	실습 과제 (ADT 설계에서 코딩까지)
+
+	cpp-tr-005	자료 은닉과 블랙박스화
