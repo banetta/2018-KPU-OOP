@@ -18,7 +18,7 @@ class car {
 
 	public:
 		void set_car_fuel(int);
-		void show();
+		void car_show();
 		void fuel_charge(gas_station &, int);
 
 };
@@ -30,22 +30,25 @@ int main() {
 
 	gas_station gas;
 	car my_car;
+	
+	int i = NULL;
 
 	gas.set_gas_fuel(500);
 	gas.gas_show();
 	my_car.set_car_fuel(10);
-	my_car.show();
+	my_car.car_show();
 
-	my_car.fuel_charge(gas, 50);
+	while ( true ) {
+	my_car.fuel_charge(gas, i);
 
 	gas.gas_show();
-	my_car.show();
-
+	my_car.car_show();
+	}
 	return 0;
 }
 
 void gas_station::set_gas_fuel(int fuel){
-	if ( fuel <= 0) {
+	if ( fuel <= 0 ) {
 		cout << "입력오류\n";
 	}
 
@@ -58,18 +61,27 @@ void gas_station::gas_show(){
 	cout << "gas_station fuel : " << gas_fuel << endl;
 }
 
-void gas_station::charge(int gs){
+void gas_station::charge(int gas){
 
-	if ( gs <= 0 ) {
+	if ( gas <= 0 ) {
 		cout << "입력오류\n";
 	}
+	else if ( gas_fuel <= 0 ) {
+		cout << "기름이 다 떨어졌습니다.\n";
+		exit(1);
+	}
 
-	gas_fuel -= gs;
+	gas_fuel -= gas;
 }
 
-void car::fuel_charge(gas_station cs, int gas){
+void car::fuel_charge(gas_station& cs, int gas){
 	
-	cs->charge(gas);
+	cout << "연료 주입량 : " ;
+	cin >> gas;
+
+	cs.charge(gas);
+
+	car_fuel += gas;
 }
 
 

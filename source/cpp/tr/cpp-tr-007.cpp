@@ -35,6 +35,7 @@ int main() {
 	kingdom.ca_show();
 
 	Blue.fire(&kingdom); // Castle& cs = kingdom
+	kingdom.ca_show();
 
 
 	return 0;
@@ -57,7 +58,7 @@ void Dragon::dr_show(){
 
 }
 
-void Dragon::fire(Castle& cs){
+void Dragon::fire(Castle* cs){
 
 	cs->destroy(power);
 
