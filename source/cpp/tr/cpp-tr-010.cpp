@@ -1,19 +1,119 @@
+//#define stringtype
+#define chartype
+
+#ifdef stringtype
+
 #include <iostream>
-#include <cstring>
+#include <string>
+#pragma warning(disable:4996)
 using namespace std;
 
 class Mobile
 {
-	char num[20];
-
 public:
-	Mobile(char*);
+	Mobile(string);
+	Mobile() {};
 	~Mobile();
 	void WhatYourNumber();
 
+private:
+
+	string num;
+
 };
 
-Mobile::Mobile(char* mynum)
+Mobile::Mobile(string mynum)
+{
+	num = mynum;
+}
+
+Mobile::~Mobile()
+{
+	cout << "default 생성자" << endl;
+}
+
+void Mobile::WhatYourNumber() {
+
+	cout << "My Number is : " << num << endl;
+
+}
+
+class Person
+{
+public:
+	Person();
+	Person(int myage, string myname, string mynum);
+
+	~Person();
+	void WhatYourName();
+	void HowOldAreYou();
+	void WhoAreYou();
+private:
+	int age;
+	string name;
+	Mobile LG;
+};
+
+Person::Person()
+{}
+
+Person::Person(int myage, string myname, string mynum) :age(myage), LG(mynum)
+{
+	name = myname;
+	cout << "Person class" << endl;
+}
+
+Person::~Person()
+{
+} // 잠시
+
+void Person::WhatYourName() {
+
+	cout << "My name is : " << name << endl;
+}
+
+void Person::HowOldAreYou() {
+	cout << "I`m " << age << " years old" << endl;
+}
+
+void Person::WhoAreYou() {
+	WhatYourName();
+	HowOldAreYou();
+	LG.WhatYourNumber();
+}
+
+int main() {
+
+	Person kim;
+	Person Kim(50, "JJKim", "010-0000-0000");
+	//Kim.WhoAreYou();
+	return 0;
+}
+
+#endif 
+
+#ifdef chartype
+
+#include <iostream>
+#include <string>
+#pragma warning(disable:4996)
+using namespace std;
+
+class Mobile
+{
+public:
+	Mobile(const char*);
+	Mobile() {};
+	~Mobile();
+	void WhatYourNumber();
+
+private:
+
+	char num[20];
+
+};
+
+Mobile::Mobile(const char* mynum)
 {
 	strcpy_s(num, 20, mynum);
 }
@@ -25,47 +125,46 @@ Mobile::~Mobile()
 }
 
 void Mobile::WhatYourNumber() {
-	
-	cout << "My Number is :" << num << endl;
+
+	cout << "My Number is : " << num << endl;
+
 }
 
-class Person
+class Person 
 {
-
-	int age;
-	char name[50];
-	Mobile LG;
-
 public:
-	
-	Person(int, char*, char*);
-	~Person() {};
+	Person();
+	Person(int myage, const char* myname, const char* mynum);
+
+	~Person();
 	void WhatYourName();
 	void HowOldAreYou();
 	void WhoAreYou();
-
+private:
+	int age;
+	char name[50];
+	Mobile LG;
 };
 
-int main()
-{
-	Person Kim(25, "JJKim", "010-0000-0000");
-	Kim.WhoAreYou();
-	return 0;
-}
+Person::Person()
+{}
 
-Person::Person(int myage, char* myname, char* mynum) : age(myage), LG(mynum)
+Person::Person(int myage, const char *myname,const char *mynum):age(myage), LG(mynum)
 {
-	strcpy_s(name, 50, myname);
+	strcpy(name, myname);
 	cout << "Person class" << endl;
 }
- 
-void Person::WhatYourName()
+
+Person::~Person ()
 {
-	cout << "My name is " << name << endl;
 }
 
-void Person::HowOldAreYou()
-{
+void Person::WhatYourName() {
+
+	cout << "My name is : " << name << endl;
+}
+
+void Person::HowOldAreYou() {
 	cout << "I`m " << age << " years old" << endl;
 }
 
@@ -74,3 +173,13 @@ void Person::WhoAreYou() {
 	HowOldAreYou();
 	LG.WhatYourNumber();
 }
+
+int main() {
+	
+	Person kim;
+	Person Kim(50, "JJKim", "010-0000-0000");
+	Kim.WhoAreYou();
+	return 0;
+}
+
+#endif 
