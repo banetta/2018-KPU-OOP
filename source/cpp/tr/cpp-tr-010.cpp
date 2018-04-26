@@ -65,7 +65,7 @@ Person::Person(int myage, string myname, string mynum) :age(myage), LG(mynum)
 
 Person::~Person()
 {
-} // ¿·Ω√
+} 
 
 void Person::WhatYourName() {
 
@@ -86,7 +86,9 @@ int main() {
 
 	Person kim;
 	Person Kim(50, "JJKim", "010-0000-0000");
-	//Kim.WhoAreYou();
+	Kim.WhoAreYou();
+
+	
 	return 0;
 }
 
