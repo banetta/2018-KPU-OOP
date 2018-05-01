@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define self_reference
+#define virtualfunc
 
 #ifdef virtualfunc
 
@@ -8,7 +8,7 @@ class Parent
 {
 public:
 	void fn1() { cout << "부모의 fn1()" << endl; };
-	// virtual void fn3() { cout << "부모의 fn3()" << endl; };	//	가상함수 선언
+	//virtual void fn3() { cout << "부모의 fn3()" << endl; };	//	가상함수 선언
 	virtual void fn3() = 0;	//	순수 가상 함수
 private:
 
