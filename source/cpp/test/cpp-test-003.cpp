@@ -15,7 +15,7 @@ public:
 	~Appliance() {};
 	virtual void Show();
 
-private:
+protected:
 	int volt;
 	char name[10];
 
@@ -44,19 +44,10 @@ public:
 	void Show();
 	void operator+(int);
 	
-private:
+protected:
 	int tem;
 };
-class Figure
-{
-public:
-	Figure() {};
-	~Figure() {};
-	virtual void Draw() = 0;
 
-protected:
-
-};
 Aircon::Aircon(const char* a, int b, int c)
 {
 	strcpy(name, a);
